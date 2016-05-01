@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+
+<title>carrito</title>
+<link href="/css/estiloscarrito.css" rel="stylesheet" type="text/css">
+<link async href="http://fonts.googleapis.com/css?family=Advent%20Pro" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery.slides.min.js"></script>
+  <script src="js/slides.js"></script>
+</head>
+
+
+
+<body   >
+  <div ng-controller="carritoCtrl">
+  <header id="main-cabezera">
+  <ul class="encabezado">
+      <img class="ImgHeader"src="img/logo.png" >
+  </ul>
+
+<nav>
+  <ul class="barraNavegacion">
+    <li><a href="#">Home</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#registro">Registro</a></li>
+    <li><a href="#login">Login</a></li>
+    <li><a href="#carrito">carrito</a></li>
+  </ul>
+</nav>
+
+ 
+  
+
+  <aside id="columnacarrito">
+    <table id="contenedorcarrito">
+      <tr id="contenedorcarrito" ng-repeat="producto in newproducts" >
+        <td id="contenedorimg"><img  width="200px" ng-src="{{producto.Imagen}}"></td>
+        <td id="articulos">
+          <h1> Nombre: {{ producto.Nombre }}</h1>
+          <p> Precio: {{ producto.Precio * (nuevaCantidad + 1)  | currency}}</p>
+          <p>Cantidad: <input type="number" class="button" ng-model="nuevaCantidad" min="1" max="20"></p>
+        </td>
+        <td >
+        <button  class="download" value="Borrar"  ng-click="borrar(producto)">Borrar
+        </button>
+        </td>
+      </tr>
+
+     </table>
+     <p> total: {{(producto.Precio * (nuevaCantidad + 1)) + total | currency}}</p>
+      </aside>
+</section>
+
+
+   <footer id="pie"><p>Institucion Universitaria De Envigado</p>
+   <p> &copy; Derechos reservados por :   <BR>     SEBASTIAN LONDOÑO CALLE<br>SANTIAGO LONDOÑO<BR>ANGELICA CASTRO</p>
+   </footer>
+</header>
+
+<script src="/angular/angular.min.js"></script>
+<script src="../angular-route/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.5.5/angular-route.min.js"></script>
+
+<script src="/angular/app.js"></script>
+<script src="/angular/controller.js"></script>
+<script src="/angular/services.js"></script>
+
+
+</body>
+</html>
